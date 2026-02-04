@@ -14,6 +14,10 @@ async function init() {
 
     // app.use(express.json());
     app.use(bodyParser.json());
+    app.get("/", (req, res) => {
+      res.status(200).json({ message: "server is running" });
+    });
+
     app.use("/api", router);
 
     app.listen(PORT, () => {
