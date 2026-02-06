@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Konfirmasi Pendaftaran</title>
+    <style>
+        /* Menggunakan font yang bersih dan standar sistem */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .header {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+        }
+
+        /* Styling untuk daftar informasi akun */
+        ul {
+            list-style: none;
+            padding: 0;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 20px;
+            border-left: 4px solid #4A90E2;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        ul li strong {
+            color: #555;
+            width: 150px;
+            display: inline-block;
+        }
+
+        /* Tombol Aktivasi */
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4A90E2;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #357ABD;
+        }
+
+        .footer {
+            background-color: #f4f7f6;
+            color: #888;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            ul li strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Selamat Datang!</h1>
+        </div>
+        <div class="content">
+            <p>Halo <strong><%= username %></strong>,</p>
+            <p>Terima kasih telah mendaftar di layanan kami. Berikut adalah informasi dari akun Anda:</p>
+            <ul>
+                <li><strong>Nama:</strong> <%= fullName %></li>
+                <li><strong>Email:</strong> <%= email %></li>
+                <li><strong>Username:</strong> <%= username %></li>
+                <li><strong>Tanggal Pendaftaran:</strong> <%= createdAt %></li>
+            </ul>
+            
+            <p>Untuk memulai, silakan klik tombol di bawah ini untuk mengaktifkan akun Anda:</p>
+
+            <div style="text-align: center;">
+                <a href="<%= activationLink %>" class="button">
+                    Aktifkan Akun Sekarang
+                </a>
+            </div>
+
+            <p>Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi kami.</p>
+            <p>Salam Hangat,<br><strong>Tim Acara</strong></p>
+        </div>
+        <div class="footer">
+            &copy; 2026 Acara App. All rights reserved.<br>
+            Surabaya, Jawa Timur, Indonesia.
+        </div>
+    </div>
+</body>
+
+</html>
