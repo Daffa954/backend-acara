@@ -8,14 +8,19 @@ import docs from "./docs/route";
 async function init() {
   try {
     const result = await db();
-    console.log("Database status: "+result);
-
+    console.log("Database status: " + result);
 
     const app = express();
     const PORT = 3000;
 
     // app.use(express.json());
-    app.use(cors());
+    app.use(
+      cors({
+        origin: "http://localhost:3000", // Izinkan origin frontend Anda secara spesifik
+        credentials: true, // Wajib true agar browser mengizinkan request
+        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+      }),
+    );
     app.use(bodyParser.json());
     app.get("/", (req, res) => {
       res.status(200).json({ message: "server is running" });
@@ -23,7 +28,6 @@ async function init() {
 
     app.use("/api", router);
     docs(app);
-
 
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
@@ -34,4 +38,3 @@ async function init() {
 }
 
 init();
-
