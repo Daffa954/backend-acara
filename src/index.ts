@@ -15,11 +15,7 @@ async function init() {
 
     // app.use(express.json());
     app.use(
-      cors({
-        origin: "http://localhost:3000", // Izinkan origin frontend Anda secara spesifik
-        credentials: true, // Wajib true agar browser mengizinkan request
-        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-      }),
+      cors(),
     );
     app.use(bodyParser.json());
     app.get("/", (req, res) => {
